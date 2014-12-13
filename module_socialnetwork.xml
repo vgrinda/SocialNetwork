@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_socialnetwork" default="compile.module.socialnetwork">
+  <dirname property="module.socialnetwork.basedir" file="${ant.file.module_socialnetwork}"/>
+  
+  <property name="module.jdk.home.socialnetwork" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.socialnetwork" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.socialnetwork" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.socialnetwork" value="-encoding UTF-8 -source 1.6 ${compiler.args}"/>
+  
+  <property name="socialnetwork.output.dir" value="${module.socialnetwork.basedir}/target/classes"/>
+  <property name="socialnetwork.testoutput.dir" value="${module.socialnetwork.basedir}/target/test-classes"/>
+  
+  <path id="socialnetwork.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="socialnetwork.module.production.classpath">
+    <path refid="${module.jdk.classpath.socialnetwork}"/>
+    <path refid="library.maven:_junit:junit:4.11.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_org.hibernate:hibernate-core:4.3.5.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.1.3.ga.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging-annotations:1.2.0.beta1.classpath"/>
+    <path refid="library.maven:_org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.0.0.final.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_xml-apis:xml-apis:1.0.b2.classpath"/>
+    <path refid="library.maven:_org.hibernate.common:hibernate-commons-annotations:4.0.4.final.classpath"/>
+    <path refid="library.maven:_org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.final.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.18.1-ga.classpath"/>
+    <path refid="library.maven:_antlr:antlr:2.7.7.classpath"/>
+    <path refid="library.maven:_org.jboss:jandex:1.1.0.final.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:5.1.6.classpath"/>
+    <path refid="library.maven:_com.sun.jersey:jersey-server:1.18.1.classpath"/>
+    <path refid="library.maven:_com.sun.jersey:jersey-core:1.18.1.classpath"/>
+    <path refid="library.maven:_com.sun.jersey:jersey-json:1.18.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.jettison:jettison:1.1.classpath"/>
+    <path refid="library.maven:_com.sun.xml.bind:jaxb-impl:2.2.3-1.classpath"/>
+    <path refid="library.maven:_javax.xml.bind:jaxb-api:2.2.2.classpath"/>
+    <path refid="library.maven:_javax.xml.stream:stax-api:1.0-2.classpath"/>
+    <path refid="library.maven:_javax.activation:activation:1.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-core-asl:1.9.2.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-mapper-asl:1.9.2.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-jaxrs:1.9.2.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-xc:1.9.2.classpath"/>
+    <path refid="library.maven:_com.sun.jersey:jersey-bundle:1.18.1.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:jsr311-api:1.1.1.classpath"/>
+    <path refid="library.maven:_com.sun.jersey.contribs:jersey-multipart:1.18.1.classpath"/>
+    <path refid="library.maven:_org.jvnet.mimepull:mimepull:1.9.3.classpath"/>
+    <path refid="library.maven:_javax.servlet:servlet-api:2.5.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-lang3:3.3.2.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-api:2.0.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-core:2.0.classpath"/>
+  </path>
+  
+  <path id="socialnetwork.runtime.production.module.classpath">
+    <pathelement location="${socialnetwork.output.dir}"/>
+    <path refid="library.maven:_junit:junit:4.11.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_org.hibernate:hibernate-core:4.3.5.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.1.3.ga.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging-annotations:1.2.0.beta1.classpath"/>
+    <path refid="library.maven:_org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.0.0.final.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_xml-apis:xml-apis:1.0.b2.classpath"/>
+    <path refid="library.maven:_org.hibernate.common:hibernate-commons-annotations:4.0.4.final.classpath"/>
+    <path refid="library.maven:_org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.final.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.18.1-ga.classpath"/>
+    <path refid="library.maven:_antlr:antlr:2.7.7.classpath"/>
+    <path refid="library.maven:_org.jboss:jandex:1.1.0.final.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:5.1.6.classpath"/>
+    <path refid="library.maven:_com.sun.jersey:jersey-server:1.18.1.classpath"/>
+    <path refid="library.maven:_com.sun.jersey:jersey-core:1.18.1.classpath"/>
+    <path refid="library.maven:_com.sun.jersey:jersey-json:1.18.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.jettison:jettison:1.1.classpath"/>
+    <path refid="library.maven:_com.sun.xml.bind:jaxb-impl:2.2.3-1.classpath"/>
+    <path refid="library.maven:_javax.xml.bind:jaxb-api:2.2.2.classpath"/>
+    <path refid="library.maven:_javax.xml.stream:stax-api:1.0-2.classpath"/>
+    <path refid="library.maven:_javax.activation:activation:1.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-core-asl:1.9.2.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-mapper-asl:1.9.2.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-jaxrs:1.9.2.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-xc:1.9.2.classpath"/>
+    <path refid="library.maven:_com.sun.jersey:jersey-bundle:1.18.1.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:jsr311-api:1.1.1.classpath"/>
+    <path refid="library.maven:_com.sun.jersey.contribs:jersey-multipart:1.18.1.classpath"/>
+    <path refid="library.maven:_org.jvnet.mimepull:mimepull:1.9.3.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-lang3:3.3.2.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-api:2.0.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-core:2.0.classpath"/>
+  </path>
+  
+  <path id="socialnetwork.module.classpath">
+    <path refid="${module.jdk.classpath.socialnetwork}"/>
+    <pathelement location="${socialnetwork.output.dir}"/>
+    <path refid="library.maven:_junit:junit:4.11.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_org.hibernate:hibernate-core:4.3.5.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.1.3.ga.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging-annotations:1.2.0.beta1.classpath"/>
+    <path refid="library.maven:_org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.0.0.final.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_xml-apis:xml-apis:1.0.b2.classpath"/>
+    <path refid="library.maven:_org.hibernate.common:hibernate-commons-annotations:4.0.4.final.classpath"/>
+    <path refid="library.maven:_org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.final.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.18.1-ga.classpath"/>
+    <path refid="library.maven:_antlr:antlr:2.7.7.classpath"/>
+    <path refid="library.maven:_org.jboss:jandex:1.1.0.final.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:5.1.6.classpath"/>
+    <path refid="library.maven:_com.sun.jersey:jersey-server:1.18.1.classpath"/>
+    <path refid="library.maven:_com.sun.jersey:jersey-core:1.18.1.classpath"/>
+    <path refid="library.maven:_com.sun.jersey:jersey-json:1.18.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.jettison:jettison:1.1.classpath"/>
+    <path refid="library.maven:_com.sun.xml.bind:jaxb-impl:2.2.3-1.classpath"/>
+    <path refid="library.maven:_javax.xml.bind:jaxb-api:2.2.2.classpath"/>
+    <path refid="library.maven:_javax.xml.stream:stax-api:1.0-2.classpath"/>
+    <path refid="library.maven:_javax.activation:activation:1.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-core-asl:1.9.2.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-mapper-asl:1.9.2.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-jaxrs:1.9.2.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-xc:1.9.2.classpath"/>
+    <path refid="library.maven:_com.sun.jersey:jersey-bundle:1.18.1.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:jsr311-api:1.1.1.classpath"/>
+    <path refid="library.maven:_com.sun.jersey.contribs:jersey-multipart:1.18.1.classpath"/>
+    <path refid="library.maven:_org.jvnet.mimepull:mimepull:1.9.3.classpath"/>
+    <path refid="library.maven:_javax.servlet:servlet-api:2.5.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-lang3:3.3.2.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-api:2.0.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-core:2.0.classpath"/>
+  </path>
+  
+  <path id="socialnetwork.runtime.module.classpath">
+    <pathelement location="${socialnetwork.testoutput.dir}"/>
+    <pathelement location="${socialnetwork.output.dir}"/>
+    <path refid="library.maven:_junit:junit:4.11.classpath"/>
+    <path refid="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath"/>
+    <path refid="library.maven:_org.hibernate:hibernate-core:4.3.5.final.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging:3.1.3.ga.classpath"/>
+    <path refid="library.maven:_org.jboss.logging:jboss-logging-annotations:1.2.0.beta1.classpath"/>
+    <path refid="library.maven:_org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.0.0.final.classpath"/>
+    <path refid="library.maven:_dom4j:dom4j:1.6.1.classpath"/>
+    <path refid="library.maven:_xml-apis:xml-apis:1.0.b2.classpath"/>
+    <path refid="library.maven:_org.hibernate.common:hibernate-commons-annotations:4.0.4.final.classpath"/>
+    <path refid="library.maven:_org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.final.classpath"/>
+    <path refid="library.maven:_org.javassist:javassist:3.18.1-ga.classpath"/>
+    <path refid="library.maven:_antlr:antlr:2.7.7.classpath"/>
+    <path refid="library.maven:_org.jboss:jandex:1.1.0.final.classpath"/>
+    <path refid="library.maven:_mysql:mysql-connector-java:5.1.6.classpath"/>
+    <path refid="library.maven:_com.sun.jersey:jersey-server:1.18.1.classpath"/>
+    <path refid="library.maven:_com.sun.jersey:jersey-core:1.18.1.classpath"/>
+    <path refid="library.maven:_com.sun.jersey:jersey-json:1.18.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.jettison:jettison:1.1.classpath"/>
+    <path refid="library.maven:_com.sun.xml.bind:jaxb-impl:2.2.3-1.classpath"/>
+    <path refid="library.maven:_javax.xml.bind:jaxb-api:2.2.2.classpath"/>
+    <path refid="library.maven:_javax.xml.stream:stax-api:1.0-2.classpath"/>
+    <path refid="library.maven:_javax.activation:activation:1.1.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-core-asl:1.9.2.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-mapper-asl:1.9.2.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-jaxrs:1.9.2.classpath"/>
+    <path refid="library.maven:_org.codehaus.jackson:jackson-xc:1.9.2.classpath"/>
+    <path refid="library.maven:_com.sun.jersey:jersey-bundle:1.18.1.classpath"/>
+    <path refid="library.maven:_javax.ws.rs:jsr311-api:1.1.1.classpath"/>
+    <path refid="library.maven:_com.sun.jersey.contribs:jersey-multipart:1.18.1.classpath"/>
+    <path refid="library.maven:_org.jvnet.mimepull:mimepull:1.9.3.classpath"/>
+    <path refid="library.maven:_javax.servlet:servlet-api:2.5.classpath"/>
+    <path refid="library.maven:_org.apache.commons:commons-lang3:3.3.2.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-api:2.0.classpath"/>
+    <path refid="library.maven:_org.apache.logging.log4j:log4j-core:2.0.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.socialnetwork">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.socialnetwork">
+    <patternset refid="excluded.from.module.socialnetwork"/>
+  </patternset>
+  
+  <path id="socialnetwork.module.sourcepath">
+    <dirset dir="${module.socialnetwork.basedir}">
+      <include name="src/main/java"/>
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.socialnetwork" depends="compile.module.socialnetwork.production,compile.module.socialnetwork.tests" description="Compile module SocialNetwork"/>
+  
+  <target name="compile.module.socialnetwork.production" depends="register.custom.compilers" description="Compile module SocialNetwork; production classes">
+    <mkdir dir="${socialnetwork.output.dir}"/>
+    <javac2 destdir="${socialnetwork.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.socialnetwork}/javac">
+      <compilerarg line="${compiler.args.socialnetwork}"/>
+      <bootclasspath refid="socialnetwork.module.bootclasspath"/>
+      <classpath refid="socialnetwork.module.production.classpath"/>
+      <src refid="socialnetwork.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.socialnetwork"/>
+    </javac2>
+    
+    <copy todir="${socialnetwork.output.dir}">
+      <fileset dir="${module.socialnetwork.basedir}/src/main/java">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.socialnetwork.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.socialnetwork.tests" depends="register.custom.compilers,compile.module.socialnetwork.production" description="compile module SocialNetwork; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.socialnetwork" description="cleanup module">
+    <delete dir="${socialnetwork.output.dir}"/>
+    <delete dir="${socialnetwork.testoutput.dir}"/>
+  </target>
+</project>

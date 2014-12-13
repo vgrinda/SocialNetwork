@@ -8,6 +8,8 @@ import com.kronets.SocialNetwork.logic.lists.UserGroupsListByName;
 import com.kronets.SocialNetwork.models.User;
 import com.sun.jersey.core.header.FormDataContentDisposition;
 import com.sun.jersey.multipart.FormDataParam;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 
 import javax.print.attribute.standard.Media;
 import javax.servlet.ServletContext;
@@ -15,11 +17,13 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Application;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.File;
 import java.io.InputStream;
+import java.net.URL;
 
 /**
  * @author Volodymyr Grynda
@@ -39,9 +43,23 @@ public class UserController {
     @Produces(MediaType.TEXT_HTML)
     public InputStream getPage(@Context ServletContext context) {
         return context.getResourceAsStream("/WEB-INF/pages/user.html");
-
-
     }
+
+   @GET
+   @Path("index")
+   @Produces("application/json")
+   public Response getData(@PathParam("f") String f) throws JSONException {
+
+       JSONObject jsonObject = new JSONObject();
+       String celsius;
+       celsius = f + "sgfrs";
+       jsonObject.put("F Value", f);
+       jsonObject.put("C Value", celsius);
+
+
+       String result = "@Produces(\"application/json\") Output: \n\nF to C Converter Output: \n\n" + jsonObject;
+       return Response.status(200).entity(result).build();
+   }
 
     @GET
     @Path("getUser")
@@ -98,16 +116,26 @@ public class UserController {
     @POST
     @Path("edit")
     @Produces(MediaType.APPLICATION_JSON)
+    @Consumes("application/json")
     public String editUser(@Context HttpServletRequest request,
-                           @FormParam("interests") String interests,
-                           @FormParam("name") String name,
-                           @FormParam("surname") String surname,
-                           @FormParam("position") String position,
-                           @FormParam("year") String year,
-                           @FormParam("date") String day,
-                           @FormParam("month") String month) {
+//                           @FormParam("interests") String interests,
+//                           @FormParam("name") String name,
+//                           @FormParam("surname") String surname,
+//                           @FormParam("position") String position,
+//                           @FormParam("year") String year,
+//                           @FormParam("date") String day,
+//                           @FormParam("month") String month
+                             String data) throws JSONException {
         long userId = (Long) request.getAttribute("userId");
         EditUserProfileLogic editUserProfile = new EditUserProfileLogic();
+        JSONObject json = new JSONObject(data);
+        String name = json.getString("username");
+        String interests = json.getString("userinterests");
+        String surname = json.getString("usersurname");
+        String position = json.getString("userposition");
+        String year = json.getString("useryear");
+        String day = json.getString("userdate");
+        String month = json.getString("usermonth");
         if (editUserProfile
                 .edit(userId, name, surname, position, interests, day, month,
                       year)) {

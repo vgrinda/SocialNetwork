@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="socialnetwork" default="all">
+  
+  
+  <property file="socialnetwork.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/*.lib/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/.bundle/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.ear"/>
+    <include name="*.apk"/>
+    <include name="*.zip"/>
+    <include name="*.swc"/>
+    <include name="*.ane"/>
+    <include name="*.egg"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.maven:_antlr:antlr:2.7.7.classpath">
+    <pathelement location="${path.variable.maven_repository}/antlr/antlr/2.7.7/antlr-2.7.7.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.jersey.contribs:jersey-multipart:1.18.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/jersey/contribs/jersey-multipart/1.18.1/jersey-multipart-1.18.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.jersey:jersey-bundle:1.18.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/jersey/jersey-bundle/1.18.1/jersey-bundle-1.18.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.jersey:jersey-core:1.18.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/jersey/jersey-core/1.18.1/jersey-core-1.18.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.jersey:jersey-json:1.18.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/jersey/jersey-json/1.18.1/jersey-json-1.18.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.jersey:jersey-server:1.18.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/jersey/jersey-server/1.18.1/jersey-server-1.18.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_com.sun.xml.bind:jaxb-impl:2.2.3-1.classpath">
+    <pathelement location="${path.variable.maven_repository}/com/sun/xml/bind/jaxb-impl/2.2.3-1/jaxb-impl-2.2.3-1.jar"/>
+  </path>
+  
+  <path id="library.maven:_dom4j:dom4j:1.6.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.activation:activation:1.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/activation/activation/1.1/activation-1.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.servlet:servlet-api:2.5.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/servlet/servlet-api/2.5/servlet-api-2.5.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.ws.rs:jsr311-api:1.1.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.xml.bind:jaxb-api:2.2.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_javax.xml.stream:stax-api:1.0-2.classpath">
+    <pathelement location="${path.variable.maven_repository}/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar"/>
+  </path>
+  
+  <path id="library.maven:_junit:junit:4.11.classpath">
+    <pathelement location="${path.variable.maven_repository}/junit/junit/4.11/junit-4.11.jar"/>
+  </path>
+  
+  <path id="library.maven:_mysql:mysql-connector-java:5.1.6.classpath">
+    <pathelement location="${path.variable.maven_repository}/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache.commons:commons-lang3:3.3.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache.logging.log4j:log4j-api:2.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/logging/log4j/log4j-api/2.0/log4j-api-2.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.apache.logging.log4j:log4j-core:2.0.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/apache/logging/log4j/log4j-core/2.0/log4j-core-2.0.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.codehaus.jackson:jackson-core-asl:1.9.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/codehaus/jackson/jackson-core-asl/1.9.2/jackson-core-asl-1.9.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.codehaus.jackson:jackson-jaxrs:1.9.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/codehaus/jackson/jackson-jaxrs/1.9.2/jackson-jaxrs-1.9.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.codehaus.jackson:jackson-mapper-asl:1.9.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/codehaus/jackson/jackson-mapper-asl/1.9.2/jackson-mapper-asl-1.9.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.codehaus.jackson:jackson-xc:1.9.2.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/codehaus/jackson/jackson-xc/1.9.2/jackson-xc-1.9.2.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.codehaus.jettison:jettison:1.1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/codehaus/jettison/jettison/1.1/jettison-1.1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.hamcrest:hamcrest-core:1.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.hibernate.common:hibernate-commons-annotations:4.0.4.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/hibernate/common/hibernate-commons-annotations/4.0.4.Final/hibernate-commons-annotations-4.0.4.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.hibernate:hibernate-core:4.3.5.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/hibernate/hibernate-core/4.3.5.Final/hibernate-core-4.3.5.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.javassist:javassist:3.18.1-ga.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.jboss.logging:jboss-logging-annotations:1.2.0.beta1.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/jboss/logging/jboss-logging-annotations/1.2.0.Beta1/jboss-logging-annotations-1.2.0.Beta1.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.jboss.logging:jboss-logging:3.1.3.ga.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/jboss/logging/jboss-logging/3.1.3.GA/jboss-logging-3.1.3.GA.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.0.0.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.0.0.Final/jboss-transaction-api_1.2_spec-1.0.0.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.jboss:jandex:1.1.0.final.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/jboss/jandex/1.1.0.Final/jandex-1.1.0.Final.jar"/>
+  </path>
+  
+  <path id="library.maven:_org.jvnet.mimepull:mimepull:1.9.3.classpath">
+    <pathelement location="${path.variable.maven_repository}/org/jvnet/mimepull/mimepull/1.9.3/mimepull-1.9.3.jar"/>
+  </path>
+  
+  <path id="library.maven:_xml-apis:xml-apis:1.0.b2.classpath">
+    <pathelement location="${path.variable.maven_repository}/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar"/>
+  </path>
+  
+  
+  <!-- Global Libraries -->
+  
+  
+  <!-- Application Server Libraries -->
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/module_socialnetwork.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.socialnetwork, clean.artifact.socialnetwork:war_exploded" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.socialnetwork" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.socialnetwork:war" value="${basedir}/target"/>
+    <property name="artifact.output.socialnetwork:war_exploded" value="${basedir}/target/sn"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.sn.war" value="${artifacts.temp.dir}/sn.war"/>
+  </target>
+  
+  <target name="clean.artifact.socialnetwork:war_exploded" description="clean SocialNetwork:war exploded artifact output">
+    <delete dir="${artifact.output.socialnetwork:war_exploded}"/>
+  </target>
+  
+  <target name="artifact.socialnetwork:war" depends="init.artifacts, artifact.socialnetwork:war_exploded" description="Build &#39;SocialNetwork:war&#39; artifact">
+    <property name="artifact.temp.output.socialnetwork:war" value="${artifacts.temp.dir}/SocialNetwork_war"/>
+    <mkdir dir="${artifact.temp.output.socialnetwork:war}"/>
+    <zip destfile="${temp.jar.path.sn.war}">
+      <zipfileset dir="${artifact.output.socialnetwork:war_exploded}"/>
+    </zip>
+    <copy file="${temp.jar.path.sn.war}" tofile="${artifact.temp.output.socialnetwork:war}/sn.war"/>
+  </target>
+  
+  <target name="artifact.socialnetwork:war_exploded" depends="init.artifacts, compile.module.socialnetwork" description="Build &#39;SocialNetwork:war exploded&#39; artifact">
+    <mkdir dir="${artifact.output.socialnetwork:war_exploded}"/>
+    <mkdir dir="${artifact.output.socialnetwork:war_exploded}/WEB-INF"/>
+    <mkdir dir="${artifact.output.socialnetwork:war_exploded}/WEB-INF/classes"/>
+    <copy todir="${artifact.output.socialnetwork:war_exploded}/WEB-INF/classes">
+      <fileset dir="${socialnetwork.output.dir}"/>
+    </copy>
+    <mkdir dir="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib"/>
+    <copy file="${path.variable.maven_repository}/junit/junit/4.11/junit-4.11.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/junit-4.11.jar"/>
+    <copy file="${path.variable.maven_repository}/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/hamcrest-core-1.3.jar"/>
+    <copy file="${path.variable.maven_repository}/org/hibernate/hibernate-core/4.3.5.Final/hibernate-core-4.3.5.Final.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/hibernate-core-4.3.5.Final.jar"/>
+    <copy file="${path.variable.maven_repository}/org/jboss/logging/jboss-logging/3.1.3.GA/jboss-logging-3.1.3.GA.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/jboss-logging-3.1.3.GA.jar"/>
+    <copy file="${path.variable.maven_repository}/org/jboss/logging/jboss-logging-annotations/1.2.0.Beta1/jboss-logging-annotations-1.2.0.Beta1.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/jboss-logging-annotations-1.2.0.Beta1.jar"/>
+    <copy file="${path.variable.maven_repository}/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.0.0.Final/jboss-transaction-api_1.2_spec-1.0.0.Final.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/jboss-transaction-api_1.2_spec-1.0.0.Final.jar"/>
+    <copy file="${path.variable.maven_repository}/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/dom4j-1.6.1.jar"/>
+    <copy file="${path.variable.maven_repository}/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/xml-apis-1.0.b2.jar"/>
+    <copy file="${path.variable.maven_repository}/org/hibernate/common/hibernate-commons-annotations/4.0.4.Final/hibernate-commons-annotations-4.0.4.Final.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/hibernate-commons-annotations-4.0.4.Final.jar"/>
+    <copy file="${path.variable.maven_repository}/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.0.Final/hibernate-jpa-2.1-api-1.0.0.Final.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar"/>
+    <copy file="${path.variable.maven_repository}/org/javassist/javassist/3.18.1-GA/javassist-3.18.1-GA.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/javassist-3.18.1-GA.jar"/>
+    <copy file="${path.variable.maven_repository}/antlr/antlr/2.7.7/antlr-2.7.7.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/antlr-2.7.7.jar"/>
+    <copy file="${path.variable.maven_repository}/org/jboss/jandex/1.1.0.Final/jandex-1.1.0.Final.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/jandex-1.1.0.Final.jar"/>
+    <copy file="${path.variable.maven_repository}/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/mysql-connector-java-5.1.6.jar"/>
+    <copy file="${path.variable.maven_repository}/com/sun/jersey/jersey-server/1.18.1/jersey-server-1.18.1.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/jersey-server-1.18.1.jar"/>
+    <copy file="${path.variable.maven_repository}/com/sun/jersey/jersey-core/1.18.1/jersey-core-1.18.1.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/jersey-core-1.18.1.jar"/>
+    <copy file="${path.variable.maven_repository}/com/sun/jersey/jersey-json/1.18.1/jersey-json-1.18.1.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/jersey-json-1.18.1.jar"/>
+    <copy file="${path.variable.maven_repository}/org/codehaus/jettison/jettison/1.1/jettison-1.1.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/jettison-1.1.jar"/>
+    <copy file="${path.variable.maven_repository}/com/sun/xml/bind/jaxb-impl/2.2.3-1/jaxb-impl-2.2.3-1.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/jaxb-impl-2.2.3-1.jar"/>
+    <copy file="${path.variable.maven_repository}/javax/xml/bind/jaxb-api/2.2.2/jaxb-api-2.2.2.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/jaxb-api-2.2.2.jar"/>
+    <copy file="${path.variable.maven_repository}/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/stax-api-1.0-2.jar"/>
+    <copy file="${path.variable.maven_repository}/javax/activation/activation/1.1/activation-1.1.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/activation-1.1.jar"/>
+    <copy file="${path.variable.maven_repository}/org/codehaus/jackson/jackson-core-asl/1.9.2/jackson-core-asl-1.9.2.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/jackson-core-asl-1.9.2.jar"/>
+    <copy file="${path.variable.maven_repository}/org/codehaus/jackson/jackson-mapper-asl/1.9.2/jackson-mapper-asl-1.9.2.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/jackson-mapper-asl-1.9.2.jar"/>
+    <copy file="${path.variable.maven_repository}/org/codehaus/jackson/jackson-jaxrs/1.9.2/jackson-jaxrs-1.9.2.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/jackson-jaxrs-1.9.2.jar"/>
+    <copy file="${path.variable.maven_repository}/org/codehaus/jackson/jackson-xc/1.9.2/jackson-xc-1.9.2.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/jackson-xc-1.9.2.jar"/>
+    <copy file="${path.variable.maven_repository}/com/sun/jersey/jersey-bundle/1.18.1/jersey-bundle-1.18.1.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/jersey-bundle-1.18.1.jar"/>
+    <copy file="${path.variable.maven_repository}/javax/ws/rs/jsr311-api/1.1.1/jsr311-api-1.1.1.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/jsr311-api-1.1.1.jar"/>
+    <copy file="${path.variable.maven_repository}/com/sun/jersey/contribs/jersey-multipart/1.18.1/jersey-multipart-1.18.1.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/jersey-multipart-1.18.1.jar"/>
+    <copy file="${path.variable.maven_repository}/org/jvnet/mimepull/mimepull/1.9.3/mimepull-1.9.3.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/mimepull-1.9.3.jar"/>
+    <copy file="${path.variable.maven_repository}/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/commons-lang3-3.3.2.jar"/>
+    <copy file="${path.variable.maven_repository}/org/apache/logging/log4j/log4j-api/2.0/log4j-api-2.0.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/log4j-api-2.0.jar"/>
+    <copy file="${path.variable.maven_repository}/org/apache/logging/log4j/log4j-core/2.0/log4j-core-2.0.jar" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/lib/log4j-core-2.0.jar"/>
+    <copy todir="${artifact.output.socialnetwork:war_exploded}">
+      <fileset dir="${basedir}/src/main/webapp"/>
+    </copy>
+    <mkdir dir="${artifact.output.socialnetwork:war_exploded}/WEB-INF"/>
+    <copy file="${basedir}/src/main/webapp/WEB-INF/web.xml" tofile="${artifact.output.socialnetwork:war_exploded}/WEB-INF/web.xml"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.socialnetwork:war, artifact.socialnetwork:war_exploded" description="Build all artifacts">
+    <mkdir dir="${artifact.output.socialnetwork:war}"/>
+    <copy todir="${artifact.output.socialnetwork:war}">
+      <fileset dir="${artifact.temp.output.socialnetwork:war}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>

@@ -853,14 +853,34 @@ jQuery(function ($) {
             $('#userinterests').val(str);
         });
 
+        
         $('#usereditform').validate({
-            submitHandler: function (form) {
-                $.post('/sn/user0/edit', { name: name.val(), surname: surname.val(), position: position.val(), interests: interests.val(), date: date.val(), month: month.val(), year: year.val() }, function (json) {
-                     if (json.status == true) {
-                             window.location.href = '/';
-                         }
-                     });
+            submitHandler: function () {
+                var name = $('#username');
+                var surname = $('#usersurname');
+                var position = $('#userposition');
+                var interests = $('#userinterests');
+                var date = $('#userdate');
+                var month = $('#usermonth');
+                var year = $('#useryear');
+                var avatar = $('#useravatar');
 
+                var data = {name:name,surname:surname,position:position,interests:interests,date:date,month:month,year:year,avatar:avatar};
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json",
+                    url: "/kronetgames/user0/edit",
+                    dataType:'json',
+                    data: JSON.stringify(data),
+
+                    success: function () {
+                        window.location.href = '/';
+                    },
+                    error: function () {
+                        alert('Wrong entry data');
+                    }
+
+                });
             }
         });
     };
