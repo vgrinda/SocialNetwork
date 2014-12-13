@@ -1,0 +1,46 @@
+.messages{
+	h1{
+		font-size: 32px;
+		margin-bottom: 10px;
+	}
+	.messages-wrap{
+		border-top: 1px solid $tab-bg-active;
+		padding: 10px 20px 0;
+		@include box-sizing(border-box);
+	}
+	.message-label{
+		font-size: 20px;
+		display: inline-block;
+	}
+	.tab{
+		margin-bottom: -1px;
+		margin-left: 10px;
+	}
+	.tab-content.sent{
+		display: none;
+	}
+
+	.message{
+		cursor: pointer;
+		padding: 10px 20px;
+		border-bottom: 1px solid #ccc;
+		margin-bottom: 5px;
+		.name{
+			font-weight: bold;
+		}
+		&.false{
+			background: #efefff;
+		}
+	}
+
+	.close{
+		float: right;
+		background: url(../img/delete.png);
+		width: 15px;
+		height: 15px;
+		background-size: cover;
+		@include transition(opacity .4s);
+		cursor: pointer;
+		display: none;
+	}
+}

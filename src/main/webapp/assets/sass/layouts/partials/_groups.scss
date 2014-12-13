@@ -1,0 +1,138 @@
+.groups{
+	.tab-content.group-create{
+		display: none;
+	}
+
+	.groups-wrap{
+		border-top: 1px solid $tab-bg-active;
+		padding: 10px 20px 0;
+		@include box-sizing(border-box);
+	}
+
+	.tab{
+		margin-bottom: -1px;
+		margin-left: 10px;
+	}
+
+	.group-entry{
+		margin-bottom: 15px;
+	}
+
+	.group-name{
+		font-weight: bold;
+	}
+	.group-created-by{
+		font-weight: bold;
+	}
+
+
+	.group-create{
+		input[type="text"], 
+		textarea{
+			border: 1px solid $border-color;
+			padding: 10px;
+			width: 100%;
+			@include box-sizing(border-box);
+			margin-bottom: 10px;
+		}
+		// input[type="text"]{
+		// }
+		textarea{
+			resize: none;
+		}
+		input[type="submit"]{
+			@extend .main-button;
+		}
+		
+	}
+}
+
+
+
+
+
+
+.group{
+	.primary{
+		width: 70%;
+		margin-right: 30%;
+		@include box-sizing(border-box);
+		padding: 0 20px;
+	}
+	.secondary{
+		width: 30%;
+		float: right;
+	}
+	h1{
+		font-size: 32px;
+		margin-bottom: 10px;
+	}
+	.group-description{
+		font-size: 16px;
+		font-weight: bold;
+		margin-bottom: 10px;
+	}
+	.details{
+		margin-bottom: 10px;
+	}
+	.members-quantity{
+		padding: 10px 0;
+		font-weight: bold;
+		color: $main-color;
+	}
+
+	.created-by{
+		margin-bottom: 20px;
+		span{
+			font-weight: bold;
+		}
+	}
+
+
+	.subcsribe-group{
+		display: block;
+		padding: 5px;
+		text-align: center;
+		background: $btn-bg;
+		color: $btn-color;
+		cursor: pointer;
+		&:hover{
+			background: $btn-bg-active;
+		}
+	}
+
+	.expand-message-form{
+		p{
+			@extend .main-button;
+			display: inline-block;
+			@include transition(padding 0.7s);
+		}
+		form{
+			display: none;
+		}
+		textarea{
+			border: 1px solid $border-color;
+			resize: none;
+			min-height: 80px;
+			padding: 10px;
+			width: 100%;
+			@include box-sizing(border-box);
+			font-size: 14px;
+		}
+		button[type="submit"]{
+			display: none;
+			@extend .main-button;
+		}
+	}
+
+	.post{
+		margin-top: 30px;
+	}
+
+	.post-message{
+		margin-left: 100px;
+	}
+	.post-name{
+		font-weight: bold;
+	}
+}

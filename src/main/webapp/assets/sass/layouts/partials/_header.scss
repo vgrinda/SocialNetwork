@@ -1,0 +1,55 @@
+header.main-header{
+	margin-bottom: 20px;
+	.exit-btn{
+		float: right;
+		margin-top: 50px; 
+		@extend .button;
+		background: $btn-bg;
+		color: $btn-color;
+		@include border-radius(0px);
+		&:hover{
+			background: $btn-bg-hover;
+		}
+		&:active{
+			background: $btn-bg-active;
+		}
+
+	}
+	.logo{
+		font-size: 36px;
+		text-decoration: none;
+		color: #777;
+		display: inline-block;
+		padding: 10px 0 30px;
+		img{
+			width: 100px;
+			height: auto;
+		}
+	}
+
+	nav.main-nav{
+		background: #25292c;
+		color: #fff;
+		overflow: hidden;
+		height: 0px;
+		margin-bottom: 60px;
+		border-bottom: 1px solid #ccc; 
+	}
+}
+
+nav.main-nav{
+	ul{
+		float: right;
+	}
+	li{
+		float: left;
+		font: 26px $RobotoCondensed;
+		padding: 30px 20px;
+		cursor: pointer;
+		@include transition(background 0.3s, color 0.7s);
+		&:hover{
+			background: #4d9fcf;
+			color: #000;
+		}
+	}
+}

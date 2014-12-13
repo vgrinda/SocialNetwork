@@ -1,0 +1,52 @@
+// compass files
+@import "compass";
+@import "compass/reset";
+@import "compass/css3";
+
+// reset file
+@import "reset";
+
+// constants file, if you need can create folder with constants
+@import "constants/_constants";
+
+// mixins
+
+
+
+// third-part files
+// @import "vendor/flexslider";
+// @import "vendor/prettyPhoto";
+
+// helpers
+@import "helpers/_wordpress";
+
+//components
+@import "components/_content";
+@import "components/_inputs";
+
+
+
+// main styles
+@import "base";
+
+// styles of different layouts
+// @import "layouts/home";
+
+@import "layouts/partials/_header";
+@import "layouts/partials/_footer";
+@import "layouts/partials/_partial";
+@import "layouts/partials/_login";
+
+@import "layouts/partials/_user-list";
+@import "layouts/partials/_home";
+
+
+@import "layouts/partials/_wall";
+@import "layouts/partials/wall/_post";
+
+@import "layouts/partials/_side-menu";
+
+@import "layouts/partials/_groups";
+@import "layouts/partials/_message";
+
+@import "layouts/partials/_user-edit";

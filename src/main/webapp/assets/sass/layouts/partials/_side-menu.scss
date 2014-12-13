@@ -1,0 +1,34 @@
+.side-menu{
+	li{
+		margin-bottom: 10px;
+		span{
+			width: 40px;
+			height: 40px;
+			display: inline-block;
+			background-size: 100%;
+			vertical-align: middle;
+			margin-right: 10px;
+			&.lnk-news{
+				background-image: url(../img/news-icon.png);
+			}
+			&.lnk-index{
+				background-image: url(../img/home-icon.png);
+			}
+			&.lnk-workers{
+				background-image: url(../img/friend-icon.png);
+			}
+			&.lnk-messages{
+				background-image: url(../img/message-icon.png);
+			}
+			&.lnk-followings{
+				background-image: url(../img/follower-icon.png);
+			}
+			&.lnk-groups{
+				background-image: url(../img/group-icon.png);
+			}
+			&.lnk-settings{
+				background-image: url(../img/settings-icon.png);
+			}
+		}
+	}
+}

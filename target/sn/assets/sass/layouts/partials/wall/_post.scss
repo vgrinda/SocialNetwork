@@ -1,0 +1,84 @@
+.wall{
+
+	.post{
+		position: relative;
+		width: 50%;
+		padding: 15px 15px 0;
+		clear: both;
+		border-top: 1px solid darken($wall-tree-color, 10%);
+		margin-top: -40px;
+		@include box-sizing(border-box);
+		&:nth-child(odd){
+			float: left;
+			border-right: 4px solid $wall-tree-color;
+			right: -2px;
+			&:after{
+				right: -12px;
+			}
+		}
+		&:nth-child(even){
+			float: right;
+			border-left: 4px solid $wall-tree-color;
+			left: -2px;
+			&:after{
+				left: -12px;
+			}
+		}
+
+		&:after{
+			content: '';
+			display: block;
+			width: 20px;
+			height: 20px;
+			@include border-radius(20px);
+			background: darken($wall-tree-color, 5%);
+			position: absolute;
+			top: -11px;
+		}
+
+		.post-name{
+			font-weight: bold;
+			font-size: 14px;
+		}
+
+		.post-message{
+			margin-left: 100px;
+			font-size: 14px;
+			line-height: 18px;
+		}
+
+		p:last-of-type{
+			&:first-letter{
+				text-transform: uppercase;
+			}
+			&:before{
+				content: "“";
+				color: orange;
+				font-size: 45px;
+				font-family: arial;
+				position: relative;
+				top: 18px;
+				margin-right: 5px;
+			}
+		}
+		.remove-post{
+			opacity: 0;
+			float: right;
+			background: url(../img/delete.png);
+			width: 15px;
+			height: 15px;
+			background-size: cover;
+			@include transition(opacity .4s);
+			cursor: pointer;
+		}
+		&:hover{
+			.remove-post{
+				opacity: .5;
+			}
+		}
+	}
+
+	.post:nth-of-type(2){
+		margin-top: 0;
+	}
+}

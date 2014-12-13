@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">
+            jdbc:mysql://localhost/SocialNetwork?useUnicode=true&amp;characterEncoding=utf8
+        </property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver
+        </property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <property name="show_sql">false</property>
+
+        <property name="format_sql">true</property>
+
+        <property name="hibernate.connection.isolation">1</property>
+
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Mapping files will go here.... -->
+        <mapping class="com.kronets.SocialNetwork.models.User"/>
+        <mapping class="com.kronets.SocialNetwork.models.Password"/>
+        <mapping class="com.kronets.SocialNetwork.models.Post"/>
+        <mapping class="com.kronets.SocialNetwork.models.Administrator"/>
+        <mapping class="com.kronets.SocialNetwork.models.BackOfficeAdmin"/>
+        <mapping class="com.kronets.SocialNetwork.models.Interest"/>
+        <mapping class="com.kronets.SocialNetwork.models.PrivateMessage"/>
+        <mapping class="com.kronets.SocialNetwork.models.Group"/>
+        <mapping class="com.kronets.SocialNetwork.models.GroupPost"/>
+        <mapping class="com.kronets.SocialNetwork.models.SessionUser"/>
+        <mapping class="com.kronets.SocialNetwork.models.Invite"/>
+    </session-factory>
+</hibernate-configuration>

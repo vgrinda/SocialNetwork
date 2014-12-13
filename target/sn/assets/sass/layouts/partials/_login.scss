@@ -1,0 +1,147 @@
+.login-section{
+	height: 800px;
+	background-image: url(../img/background_lights_highlight.jpg);
+	background-position: center;
+	background-size: cover;
+
+
+	h1{
+		font-family: 'Roboto Condensed';
+		font-size: 45px;
+		padding-bottom: 10px;
+		color: #fff;
+	}
+
+	.login-image{
+		float: left;
+		width: 48%;
+		padding: 0 40px;
+		margin-top: 200px;
+		@include box-sizing(border-box);
+		img{
+			border: 2px solid #fff;
+			@include border-radius(1000px);
+			width: 100%;
+			display: block;
+		}
+	}
+
+	.login-form{
+		margin-top: 200px;
+		width: 48%;
+		padding: 40px 30px;
+		margin-bottom: 80px;
+		@include box-sizing(border-box);
+		float: right;
+		color: #fff;
+		@include border-radius(4px);
+	}
+
+	.register-form{
+		width: 48%;
+		float: right;
+		margin-top: 80px;
+		padding: 40px 30px;
+		@include box-sizing(border-box);
+		display: none;
+		color: #fff;
+		input[type="text"],
+		input[type="password"],
+		input[type="email"]{
+			padding: 6px 20px;
+		}
+	}
+
+
+	input[type="text"],
+	input[type="password"],
+	input[type="email"]{
+		width: 100%;
+		padding: 20px 20px;
+		border: 1px solid #fff;
+		@include border-radius(4px);
+		@include box-sizing(border-box);
+		margin-top: 20px;
+		color: #fff;
+		background: rgba(0,0,0, .5);
+		font: 16px $base-font-family;
+	}
+
+	.btn-full{
+		@extend .button;
+		font-family: $base-font-family;
+		font-size: 16px;
+		display: inline-block;
+	}
+
+	.btn-empty{
+		@extend .button;
+		background: transparent;
+		color: #fff;
+		float: right;
+		&:hover{
+			background: #fff;
+			color: #000;
+		}
+	}
+
+	.controls{
+		margin-top: 20px;
+	}
+
+	.register-error-msg{
+		color: #fff;
+		font-size: 18px;
+		display: none;
+	}
+
+	.input-block{
+		position: relative;
+	}
+
+	input:hover + .hint{
+		visibility: visible;
+		opacity: 1;
+	}
+	.hint{
+		position: absolute;
+		top: 0;
+		left: 60%;
+		padding: 5px 10px;
+		@include border-radius(10px);
+		background: #FFFFCC;
+		color: #000;
+		visibility: hidden;
+		opacity: 0;
+		line-height: 20px;
+		z-index: 1;
+		&:before{
+			background: inherit;
+			content: '';
+			display: block;
+			width: 10px;
+			height: 10px;
+			@include border-radius(20px);
+			position: absolute;
+			top: 9px;
+			left: -13px;
+		}
+		@include transition(opacity .5s);
+		&:hover{
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}
+
+.description{
+	.wraper{
+		width: 960px;
+		padding: 60px 120px;
+		margin: auto;
+		@include box-sizing(border-box);
+		text-align: center;
+		.title{
+		}
+	}
+}
