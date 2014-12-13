@@ -115,7 +115,7 @@ public class UserController {
 
     @POST
     @Path("edit")
-    @Produces(MediaType.APPLICATION_JSON)
+    //@Produces(MediaType.APPLICATION_JSON)
     @Consumes("application/json")
     public String editUser(@Context HttpServletRequest request,
 //                           @FormParam("interests") String interests,
@@ -126,16 +126,17 @@ public class UserController {
 //                           @FormParam("date") String day,
 //                           @FormParam("month") String month
                              String data) throws JSONException {
+
+        JSONObject json = new JSONObject(data);
         long userId = (Long) request.getAttribute("userId");
         EditUserProfileLogic editUserProfile = new EditUserProfileLogic();
-        JSONObject json = new JSONObject(data);
-        String name = json.getString("username");
-        String interests = json.getString("userinterests");
-        String surname = json.getString("usersurname");
-        String position = json.getString("userposition");
-        String year = json.getString("useryear");
-        String day = json.getString("userdate");
-        String month = json.getString("usermonth");
+        String name = json.getString("name");
+        String interests = json.getString("interests");
+        String surname = json.getString("surname");
+        String position = json.getString("position");
+        String year = json.getString("year");
+        String day = json.getString("date");
+        String month = json.getString("month");
         if (editUserProfile
                 .edit(userId, name, surname, position, interests, day, month,
                       year)) {

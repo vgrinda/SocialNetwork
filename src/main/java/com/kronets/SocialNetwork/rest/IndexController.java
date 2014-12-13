@@ -5,6 +5,8 @@ import com.kronets.SocialNetwork.logic.RegistrationLogic;
 import com.kronets.SocialNetwork.logic.Responses;
 import com.kronets.SocialNetwork.logic.SessionLogic;
 import com.kronets.SocialNetwork.models.User;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
@@ -42,9 +44,12 @@ public class IndexController {
     @Path("login")
     public String login(@Context HttpServletRequest request,
                         @Context HttpServletResponse response,
-                        @FormParam("login") String login,
-                        @FormParam("pass") String password) {
-
+//                        @FormParam("login") String login,
+//                        @FormParam("pass") String password
+                          String data)throws JSONException{
+        JSONObject json = new JSONObject(data);
+        String login = json.getString("login");
+        String password = json.getString("password");
         LoginLogic log = new LoginLogic();
         User user = log.getUser(login, password);
         Cookie cookie;
@@ -69,14 +74,20 @@ public class IndexController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes("application/x-www-form-urlencoded")
     @Path("registration")
-    public String registration(@FormParam("name") String name,
-                               @FormParam("surname") String surname,
-                               @FormParam("position") String position,
-                               @FormParam("email") String login,
-                               @FormParam("password") String password,
-                               @FormParam("birthday") long birthday,
-                               @FormParam("invite") String invite) {
-
+    public String registration(
+//                               @FormParam("surname") String surname,
+//                               @FormParam("position") String position,
+//                               @FormParam("email") String login,
+//                               @FormParam("password") String password,
+//                               @FormParam("birthday") long birthday,
+//                               @FormParam("invite") String invite
+                                 String data) {
+        JSONObject json = new JSONObject(data);
+        String name = json.getString("name");
+        String surname = json.get("surname");
+        String login = json.getString("login");
+        String password = json.getString("password");
+        String invite = json.getString("invite");
         RegistrationLogic registrationLogic = new RegistrationLogic();
 
         String result = registrationLogic.register(name, surname, login, password, invite);

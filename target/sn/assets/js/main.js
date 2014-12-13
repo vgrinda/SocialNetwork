@@ -856,20 +856,20 @@ jQuery(function ($) {
         
         $('#usereditform').validate({
             submitHandler: function () {
-                var name = $('#username');
-                var surname = $('#usersurname');
-                var position = $('#userposition');
-                var interests = $('#userinterests');
-                var date = $('#userdate');
-                var month = $('#usermonth');
-                var year = $('#useryear');
-                var avatar = $('#useravatar');
+                var name = $('#username').val();
+                var surname = $('#usersurname').val();
+                var position = $('#userposition').val();
+                var interests = $('#userinterests').val();
+                var date = $('#userdate').val();
+                var month = $('#usermonth').val();
+                var year = $('#useryear').val();
+                var avatar = $('#useravatar').val();
 
-                var data = {name:name,surname:surname,position:position,interests:interests,date:date,month:month,year:year,avatar:avatar};
+                var data = {name:name,surname:surname,position:position,interests:interests,date:date,month:month,year:year};
                 $.ajax({
                     type: "POST",
                     contentType: "application/json",
-                    url: "/kronetgames/user0/edit",
+                    url: "/sn/user0/edit",
                     dataType:'json',
                     data: JSON.stringify(data),
 
