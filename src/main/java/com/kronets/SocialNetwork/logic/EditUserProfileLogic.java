@@ -10,6 +10,8 @@ import com.kronets.SocialNetwork.models.User;
 
 import java.sql.Date;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 /**
@@ -21,8 +23,18 @@ public class EditUserProfileLogic {
     public boolean edit(long userId, String name, String surname,
                      String position, String interests, String day,
                      String month, String year) {
+        String names = new String(name);
+        String surnames = new String(surname);
+        String positions = new String(position);
+        String interest = new String(interests);
+        String days = new String(day);
+        String months = new String(month);
+        String years = new String(year);
         try {
-            if(logic(userId, name, surname, position, interests, day, month, year)){
+            if(logic(userId, name, surname, position, interests, day, month, year) && match(name, surname, position, interests,
+                    day, month, year) && names.length() > 2 && names.length() < 20 && surnames.length() > 2 && surnames.length() < 20 &&
+                    positions.length() > 2 && positions.length() < 20 && interest.length() > 2 && interest.length() < 51 &&
+                    days.length() == 2 && months.length() == 2 && years.length() == 4){
                 return true;
             }else{
                 return false;
@@ -158,6 +170,33 @@ public class EditUserProfileLogic {
             return date;
         } else {
             return null;
+        }
+    }
+
+    private boolean match(String name, String surname, String position, String interests, String day,
+                          String month, String year) {
+
+        Pattern namePattern = Pattern.compile("^[a-zA-Z0-9_-]{2,20}$");
+        Pattern surnamePattern = Pattern.compile("^[a-zA-Z0-9_-]{2,20}$");
+        Pattern positionpattern = Pattern.compile("^[a-zA-Z0-9_-]{2,20}$");
+        Pattern interestsPattern = Pattern.compile("^[a-zA-Z0-9_-]{2,100}$");
+        Pattern dayPattern =  Pattern.compile("^[a-zA-Z0-9_-]{1,3}$");
+        Pattern monthPattern = Pattern.compile("^[a-zA-Z0-9_-]{1,3}$");
+        Pattern yearPattern = Pattern.compile("^[a-zA-Z0-9_-]{1,5}$");
+
+        Matcher nameMatcher = namePattern.matcher(name);
+        Matcher surnameMatcher = surnamePattern.matcher(surname);
+        Matcher positionMatcher = positionpattern.matcher(position);
+        Matcher interestsMatcher = interestsPattern.matcher(interests);
+        Matcher dayMatcher = dayPattern.matcher(day);
+        Matcher monthMatcher = monthPattern.matcher(month);
+        Matcher yearMatcher = yearPattern.matcher(year);
+
+        if (surnameMatcher.matches() && nameMatcher.matches() && positionMatcher.matches() && interestsMatcher.matches()
+                && dayMatcher.matches() && monthMatcher.matches() && yearMatcher.matches()) {
+            return true;
+        } else {
+            return false;
         }
     }
 }

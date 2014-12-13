@@ -7,7 +7,7 @@
 @import "reset";
 
 // constants file, if you need can create folder with constants
-@import "constants/_constants";
+@import "constants/constants";
 
 // mixins
 
@@ -18,11 +18,11 @@
 // @import "vendor/prettyPhoto";
 
 // helpers
-@import "helpers/_wordpress";
+@import "helpers/wordpress";
 
 //components
-@import "components/_content";
-@import "components/_inputs";
+@import "components/content";
+@import "components/inputs";
 
 
 
@@ -32,21 +32,21 @@
 // styles of different layouts
 // @import "layouts/home";
 
-@import "layouts/partials/_header";
-@import "layouts/partials/_footer";
-@import "layouts/partials/_partial";
-@import "layouts/partials/_login";
+@import "layouts/partials/header";
+@import "layouts/partials/footer";
+@import "layouts/partials/partial";
+@import "layouts/partials/login";
 
-@import "layouts/partials/_user-list";
-@import "layouts/partials/_home";
+@import "layouts/partials/user-list";
+@import "layouts/partials/home";
 
 
-@import "layouts/partials/_wall";
-@import "layouts/partials/wall/_post";
+@import "layouts/partials/wall";
+@import "layouts/partials/wall/post";
 
-@import "layouts/partials/_side-menu";
+@import "layouts/partials/side-menu";
 
-@import "layouts/partials/_groups";
-@import "layouts/partials/_message";
+@import "layouts/partials/groups";
+@import "layouts/partials/message";
 
-@import "layouts/partials/_user-edit";
+@import "layouts/partials/user-edit";
