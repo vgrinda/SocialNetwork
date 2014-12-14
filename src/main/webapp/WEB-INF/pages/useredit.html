@@ -25,7 +25,8 @@
 	<script src="../../../../../../../../Desktop/webapp/assets/js/jquery.validate.js"></script>
 	<script src="/assets/js/jquery.prettyPhoto.js"></script>
 	<script src="../../../../../../../../Desktop/webapp/assets/js/main.js"></script>
-
+    <link href="/assets/css/custom.css" media="screen, projection" rel="stylesheet" type="text/css" />
+    <script src="/assets/js/libs/angular.min.js"></script>
 	<!--[if lte IE 9]>
 		<script src="assets/javascripts/legacy/html5shiv.js"></script>
 		<script src="assets/javascripts/legacy/legacy.js"></script>
@@ -51,6 +52,7 @@
                     <li><a href="/sn/followings"><span class="lnk-followings"></span>Followings</a></li>
                     <li><a href="/sn/groups"><span class="lnk-groups"></span>Groups</a></li>
                     <li><a href="/sn/edit"><span class="lnk-settings"></span>Settings</a></li>
+                    <li ng-if="!github.empty"><a href="/sn/gitpage"><span class="lnk-gitpage"></span>GitPage</a></li>
                 </ul>
             </div>
 

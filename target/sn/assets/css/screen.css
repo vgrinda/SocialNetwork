@@ -108,8 +108,8 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 
 @font-face {
   font-family: "icon-fonts";
-  src: url('../fonts/icon-fonts.eot');
-  src: url('../fonts/icon-fonts.eot?#iefix') format('embedded-opentype'), url('../fonts/icon-fonts.woff') format('woff'), url('../fonts/icon-fonts.ttf') format('truetype'), url('../fonts/icon-fonts.svg') format('svg');
+  src: url('../../../../../../../../Desktop/webapp/assets/fonts/icon-fonts.eot');
+  src: url('../../../../../../../../Desktop/webapp/assets/fonts/icon-fonts.eot?#iefix') format('embedded-opentype'), url('../../../../../../../../Desktop/webapp/assets/fonts/icon-fonts.woff') format('woff'), url('../../../../../../../../Desktop/webapp/assets/fonts/icon-fonts.ttf') format('truetype'), url('../../../../../../../../Desktop/webapp/assets/fonts/icon-fonts.svg') format('svg');
 }
 
 /* line 1, ../sass/helpers/_wordpress.scss */
@@ -432,10 +432,10 @@ a img.aligncenter {
     width: 40%;
 }
 .workon_line {
-    padding: 80px 0px 10px 10px;
-    border-bottom: 1px solid#14C5D3;
-    color: #565656;
-    margin-bottom: 60px;
+   padding: 77px 0px 10px 10px;
+border-bottom: 2px solid #14C5D3;
+color: #565656;
+margin-bottom: 60px;
 }
 #workon {
     color: rgba(3, 138, 163, 0.7);
@@ -758,7 +758,7 @@ padding: 20px;
 .login-section {
  
 height: 800px;
-background-image: url(../img/backgroundlogin.jpg);
+background-image: url(../../../../../../../../Desktop/webapp/assets/img/backgroundlogin.jpg);
 z-index: 1;
 background-repeat: no-repeat;
 -moz-background-size: 100% 100%;
@@ -950,7 +950,14 @@ font-size: 1.0em;
 /* line 1, ../sass/layouts/partials/_user-list.scss */
 .user-list {
   width: 500px;
+  margin-top: 65px;
   margin: auto;
+}
+#listOfUsers {
+  margin-top: 65px;
+}
+#listOfUsers {
+    margin-top: 65px;
 }
 /* line 4, ../sass/layouts/partials/_user-list.scss */
 .user-list .user-entry {
@@ -1302,7 +1309,7 @@ font-size: 1.0em;
 .wall .post .remove-post {
   opacity: 0;
   float: right;
-  background: url(../img/delete.png);
+  background: url(../../../../../../../../Desktop/webapp/assets/img/delete.png);
   width: 15px;
   height: 15px;
   background-size: cover;
@@ -1340,31 +1347,31 @@ margin-left: 8%;
 }
 /* line 11, ../sass/layouts/partials/_side-menu.scss */
 .side-menu li span.lnk-news {
-  background-image: url(../img/news-icon.png);
+  background-image: url(../../../../../../../../Desktop/webapp/assets/img/news-icon.png);
 }
 /* line 14, ../sass/layouts/partials/_side-menu.scss */
 .side-menu li span.lnk-index {
-  background-image: url(../img/home-icon.png);
+  background-image: url(../../../../../../../../Desktop/webapp/assets/img/home-icon.png);
 }
 /* line 17, ../sass/layouts/partials/_side-menu.scss */
 .side-menu li span.lnk-workers {
-  background-image: url(../img/friend-icon.png);
+  background-image: url(../../../../../../../../Desktop/webapp/assets/img/friend-icon.png);
 }
 /* line 20, ../sass/layouts/partials/_side-menu.scss */
 .side-menu li span.lnk-messages {
-  background-image: url(../img/message-icon.png);
+  background-image: url(../../../../../../../../Desktop/webapp/assets/img/message-icon.png);
 }
 /* line 23, ../sass/layouts/partials/_side-menu.scss */
 .side-menu li span.lnk-followings {
-  background-image: url(../img/follower-icon.png);
+  background-image: url(../../../../../../../../Desktop/webapp/assets/img/follower-icon.png);
 }
 /* line 26, ../sass/layouts/partials/_side-menu.scss */
 .side-menu li span.lnk-groups {
-  background-image: url(../img/group-icon.png);
+  background-image: url(../../../../../../../../Desktop/webapp/assets/img/group-icon.png);
 }
 /* line 29, ../sass/layouts/partials/_side-menu.scss */
 .side-menu li span.lnk-settings {
-  background-image: url(../img/settings-icon.png);
+  background-image: url(../../../../../../../../Desktop/webapp/assets/img/settings-icon.png);
 }
 
 /* line 2, ../sass/layouts/partials/_groups.scss */
@@ -1554,7 +1561,7 @@ margin-left: 8%;
 /* line 36, ../sass/layouts/partials/_message.scss */
 .messages .close {
   float: right;
-  background: url(../img/delete.png);
+  background: url(../../../../../../../../Desktop/webapp/assets/img/delete.png);
   width: 15px;
   height: 15px;
   background-size: cover;
@@ -1653,7 +1660,7 @@ margin-right: 0px;
 
 width: 100%;
 height: auto;
-background-image: url(../img/768bg.png);
+background-image: url(../../../../../../../../Desktop/webapp/assets/img/768bg.png);
 max-width: 768px;
 }
 .description .wraper {
@@ -1734,7 +1741,7 @@ padding: 10px 20px;
 
 width: 100%;
 height: auto;
-background-image: url(../img/768bg.png);
+background-image: url(../../../../../../../../Desktop/webapp/assets/img/768bg.png);
 max-width: 768px;
 }
 .description .wraper {
