@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="gitPage">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
@@ -15,11 +15,12 @@
 	<!-- font-family: 'Open Sans Condensed', sans-serif; -->
 
 	<link href="/assets/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	<link href="/assets/css/custom.css" media="screen, projection" rel="stylesheet" type="text/css" />
 	<!--[if lte IE 9]>
     <link href="/assets/css/ie.css" media="screen, projection" rel="stylesheet"
           type="text/css"/>  <![endif]-->
 	<link href="/assets/css/print.css" media="print" rel="stylesheet" type="text/css" />
-	<link href="/assets/css/custom.css" media="print" rel="stylesheet" type="text/css" />
+
 	<script src="/assets/js/jquery-1.11.0.min.js"></script>
 	<script src="/assets/js/jquery.cookie.js"></script>
 	<script src="/assets/js/jquery.validate.js"></script>
@@ -27,13 +28,16 @@
 	<script src="/assets/js/main.js"></script>
 
 	<script src="/assets/js/libs/angular.min.js"></script>
+	<script src="/assets/js/controllers/gitPageController.js"></script>
+
+
 	<!--[if lte IE 9]>
 		<script src="assets/javascripts/legacy/html5shiv.js"></script>
 		<script src="assets/javascripts/legacy/legacy.js"></script>
 		<script src="assets/javascripts/legacy/jquery.placeholder.js"></script>
 	<![endif]-->
 </head>
-<body id="home">
+<body id="home" ng-controller="gitPage">
 	
 	<header class="main-header">
 		<div class="wraper clearfix">
@@ -71,18 +75,18 @@
 			<div class="user clearfix">
 				<div class="user-aside">
 					<div class="user-image">
-						<img id="avatar" >
-						<span class="change-user-pic">Change Photo</span>
+						<img id="avatar" ng-src="{{github.avatar_url}}">
+						<span class="change-user-pic"></span>
 
 						<div class='upload-user-pic'>
-		                    <input type='file' id='_file' value="+" >
-							<label class="file" for="_file">+</label>
-		                    <input type='button' id='_submit' value='Upload!'>
-							<label class="submit" for="_submit">Upload</label>
-			                <!-- <div class='progress_outer'>
-			                    <div id='_progress' class='progress'></div>
-			                </div> -->
-			            </div>
+						<input type='file' id='_file' value="+" >
+						<label class="file" for="_file">+</label>
+						<input type='button' id='_submit' value='Upload!'>
+						<label class="submit" for="_submit">Upload</label>
+						<!-- <div class='progress_outer'>
+                            <div id='_progress' class='progress'></div>
+                        </div> -->
+					</div>
 					</div>
 
 					<span class="follow"></span>
@@ -91,12 +95,12 @@
 
 				<div class="user-info">
 					<h1 class="name">
-						<span id="user-name"></span>
-						<span id="user-surname"></span>
+						<span >{{ github.name }}</span>
 					</h1>
-					<p class="position" >Position: <span id="user-position"></span></p>
-					<p class="birthday">Birthday: <span id="user-birthday"> </span></p>
-					<p class="hobbies">Hobbies: <span id="user-hobbies"> </span></p>
+					<p class="position" > <strong>Login:</strong> {{github.login}}</p>
+					<p class="birthday"><strong>Location:</strong> {{github.location}}</p>
+					<p class="hobbies"><strong>Public repos:</strong> {{ github.public_repos }}</p>
+					<p class="hobbies"><strong>Bio:</strong> {{ github.bio || "Sorry, this guy hasn't bio :(" }}</p>
 
 					<div class="expand-message-form private-message-form clearfix">
 						<p>Send private message</p>
@@ -109,21 +113,36 @@
 				</div>
 			</div>
 
-			<div id="wall" class="wall clearfix">
-				<p class="wall-posts-quantity">Wall posts</p>
-				<div class="new-wall-post expand-message-form clearfix">
-					<p>Write a wall message</p>
-					<form action="home_submit" method="get" accept-charset="utf-8">
-						<textarea class="form-text-area" placeholder="Type your message here"></textarea>
-						<button class="wall-post-submit button-inactive" type="submit">Post on Wall</button>
-					</form>
+			<!-- repos info -->
+			<div>
+				<div ng-repeat="v in repos" class="repos">
+					<!--<div class="gh-link" ng-href="{{v.html_url}}">-->
+						<a class="repo-title" ng-href="{{v.html_url}}">{{ v.name }}</a>
+						<div class="repo-lang">{{ v.language }}</div>
+						<br>
+						<div class="forks"> <b>Forks:</b> {{ v.forks_count }}</div>
+						<div class="last-commit"> Created at: {{ v.created_at | date:'yyyy-MM-dd' }}</div>
+						<div class="owner-name">{{ v.owner.name }}</div>
+						<div class="break-line"></div>
+						<div class="clearfix"></div>
+					<!--</div>-->
 				</div>
-				<!-- posts appended here -->
+			</div>
+			<!--<div id="wall" class="wall clearfix">-->
+				<!--<p class="wall-posts-quantity">Wall posts</p>-->
+				<!--<div class="new-wall-post expand-message-form clearfix">-->
+					<!--<p>Write a wall message</p>-->
+					<!--<form action="home_submit" method="get" accept-charset="utf-8">-->
+						<!--<textarea class="form-text-area" placeholder="Type your message here"></textarea>-->
+						<!--<button class="wall-post-submit button-inactive" type="submit">Post on Wall</button>-->
+					<!--</form>-->
+				<!--</div>-->
+				<!--&lt;!&ndash; posts appended here &ndash;&gt;-->
 
-			</div>
-			<div class="more-container">
-				<button class="load-more more-wall-posts">More</button>
-			</div>
+			<!--</div>-->
+			<!--<div class="more-container">-->
+				<!--<button class="load-more more-wall-posts">More</button>-->
+			<!--</div>-->
 		</div>
 	</div>
 

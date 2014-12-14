@@ -1,0 +1,47 @@
+/* repos style */
+.repos {
+    width: 500px;
+}
+
+.repos > .repo-title {
+    font-size: 25px;
+    font-weight: 400;
+    float: left;
+}
+
+.repos > .repo-lang {
+    float: right;
+    color: #696868;
+}
+
+.repos > .forks {
+    margin: 10px 10px 0 0;
+    float:left;
+}
+
+.repos > .last-commit {
+    margin: 10px 0 0 15px;
+    padding: 0 0 0 25px;
+}
+
+.repos > .owner-name {
+    float: left
+}
+
+.repos > .break-line {
+    border-bottom: solid 1px grey;
+    margin: 10px 0 10px 0;
+}
+
+.repos > .gh-link :hover {
+    /*background-color: grey;*/
+}
+/* other */
+.lnk-gitpage {
+    background: url(/assets/icons/github.png) no-repeat;
+}
+
+/* clearfix */
+.clearfix {
+    clear: both;
+}
