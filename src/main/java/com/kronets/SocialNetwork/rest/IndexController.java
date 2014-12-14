@@ -40,7 +40,7 @@ public class IndexController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes("application/x-www-form-urlencoded")
+    @Consumes("application/json")
     @Path("login")
     public String login(@Context HttpServletRequest request,
                         @Context HttpServletResponse response,
@@ -49,7 +49,7 @@ public class IndexController {
                           String data)throws JSONException{
         JSONObject json = new JSONObject(data);
         String login = json.getString("login");
-        String password = json.getString("password");
+        String password = json.getString("pass");
         LoginLogic log = new LoginLogic();
         User user = log.getUser(login, password);
         Cookie cookie;
@@ -72,7 +72,7 @@ public class IndexController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes("application/x-www-form-urlencoded")
+    @Consumes("application/json")
     @Path("registration")
     public String registration(
 //                               @FormParam("surname") String surname,
@@ -81,11 +81,11 @@ public class IndexController {
 //                               @FormParam("password") String password,
 //                               @FormParam("birthday") long birthday,
 //                               @FormParam("invite") String invite
-                                 String data) {
+                                 String data)throws JSONException{
         JSONObject json = new JSONObject(data);
         String name = json.getString("name");
-        String surname = json.get("surname");
-        String login = json.getString("login");
+        String surname = json.getString("surname");
+        String login = json.getString("email");
         String password = json.getString("password");
         String invite = json.getString("invite");
         RegistrationLogic registrationLogic = new RegistrationLogic();

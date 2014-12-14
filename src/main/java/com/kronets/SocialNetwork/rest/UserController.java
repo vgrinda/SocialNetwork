@@ -71,8 +71,11 @@ public class UserController {
     @POST
     @Path("createPost")
     @Produces(MediaType.APPLICATION_JSON)
+    @Consumes("application/json")
     public String addPost(@Context HttpServletRequest request,
-                          @FormParam("msg") String msg) {
+                          String data)throws JSONException{
+        JSONObject json = new JSONObject(data);
+        String msg = json.getString("msg");
         return "{\"status\": " + new UserLogic()
                 .createPost((Long) request.getAttribute("userId"), msg) + "}";
     }
@@ -81,7 +84,9 @@ public class UserController {
     @Path("deletePost")
     @Produces(MediaType.APPLICATION_JSON)
     public String deletePost(@Context HttpServletRequest request,
-                             @FormParam("postId") long postId) {
+                             String data)throws JSONException{
+        JSONObject json = new JSONObject(data);
+        int postId = json.getInt("postId");
         return "{\"status\": " + new UserLogic()
                 .deletePost((Long) request.getAttribute("userId"), postId) +
                "}";
@@ -163,8 +168,11 @@ public class UserController {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Path("add")
+    @Consumes("application/json")
     public String addFollowing(@Context HttpServletRequest request,
-                               @PathParam("id") long id) {
+                               String data)throws JSONException{
+        JSONObject json = new JSONObject(data);
+        int id = json.getInt("id");
         return "{\"status\": " + new FollowingLogic()
                 .addFollowing((Long) request.getAttribute("userId"),
                               id) + "}";
@@ -173,8 +181,11 @@ public class UserController {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Path("delete")
+    @Consumes("application/json")
     public String deleteFollowing(@Context HttpServletRequest request,
-                                  @PathParam("id") long id) {
+                                  String data1)throws JSONException{
+        JSONObject json = new JSONObject(data1);
+        int id = json.getInt("id");
         return "{\"status\": " + new FollowingLogic()
                 .deleteFollowing((Long) request.getAttribute("userId"),
                                  id) + "}";

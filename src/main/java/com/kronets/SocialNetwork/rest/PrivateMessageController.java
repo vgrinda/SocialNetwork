@@ -3,6 +3,8 @@ package com.kronets.SocialNetwork.rest;
 import com.kronets.SocialNetwork.logic.PrivateMessageLogic;
 import com.kronets.SocialNetwork.logic.lists.ReceivedMessageList;
 import com.kronets.SocialNetwork.logic.lists.SentMessageList;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -44,9 +46,12 @@ public class PrivateMessageController {
     @POST
     @Path("sendMessage")
     @Produces(MediaType.APPLICATION_JSON)
+    @Consumes("application/json")
     public String sendMessage(@Context HttpServletRequest request,
-                              @FormParam("to") long toUserId,
-                              @FormParam("msg") String msg) {
+                              String data)throws JSONException{
+        JSONObject json = new JSONObject(data);
+        long toUserId = json.getLong("to");
+        String msg = json.getString("msg");
         return "{\"result\": " + new PrivateMessageLogic()
                 .createPm((Long) request.getAttribute("userId"), toUserId, msg);
     }

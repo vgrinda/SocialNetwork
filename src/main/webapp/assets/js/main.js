@@ -14,12 +14,22 @@ jQuery(function ($) {
         submitHandler: function (form) {
             var login = $('#userlogin').val();
             var pass = $('#userpassword').val();
-            $.post('/sn/index/login', {login: login, pass: pass}, function (server_json) {
-                if (server_json.status == true) {
-                    location.reload();
+            var data = {login:login,pass:pass};
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: "/sn/index/login",
+                dataType:'json',
+                data: JSON.stringify(data),
+
+                success: function () {
+                    window.location.href = '/';
+                },
+                error: function () {
+                    alert('Wrong entry data');
                 }
-                // else {alert('Wrong login or password')}
-            }, 'json')
+
+            });
         }
     });
 
@@ -32,21 +42,37 @@ jQuery(function ($) {
             var birthday = $('#birthday').val();
             var pass = $('#pass').val();
             var invite = $('#invite').val();
-            $.post('/sn/index/registration', {name: name, surname: surname, position: position, birthday: birthday, email: email, password: pass, invite: invite}, function (response) {
-                if (response.status == true) {
-                    location.reload();
-                    $('#register-error-msg').hide();
-                } else if (response.status == false) {
-                    var msg = 'Server responded with error';
-                    $('#register-error-msg').text(msg).fadeIn(500);
-                } else if (response.status == 'wrongInviteCode') {
-                    var msg = 'Wrong invite code';
-                    $('#register-error-msg').text(msg).fadeIn(500);
-                } else if (response.status == 'wrongLoginPass') {
-                    var msg = 'Wrong login or password';
-                    $('#register-error-msg').text(msg).fadeIn(500);
+//            $.post('/sn/index/registration', {name: name, surname: surname, position: position, birthday: birthday, email: email, password: pass, invite: invite}, function (response) {
+//                if (response.status == true) {
+//                    location.reload();
+//                    $('#register-error-msg').hide();
+//                } else if (response.status == false) {
+//                    var msg = 'Server responded with error';
+//                    $('#register-error-msg').text(msg).fadeIn(500);
+//                } else if (response.status == 'wrongInviteCode') {
+//                    var msg = 'Wrong invite code';
+//                    $('#register-error-msg').text(msg).fadeIn(500);
+//                } else if (response.status == 'wrongLoginPass') {
+//                    var msg = 'Wrong login or password';
+//                    $('#register-error-msg').text(msg).fadeIn(500);
+//                }
+//            }, 'json');
+            var data = {name:name,surname:surname,email:email,password:pass,invite:invite};
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: "/sn/index/registration",
+                dataType:'json',
+                data: JSON.stringify(data),
+
+                success: function () {
+                    window.location.href = '/';
+                },
+                error: function () {
+                    alert('Wrong entry data');
                 }
-            }, 'json');
+
+            });
         },
         rules: {
             pass: {
@@ -97,10 +123,21 @@ jQuery(function ($) {
         event.preventDefault();
         var msg = thisEl.parent('form').find('textarea').val();
         if (msg == '') return;
-        $.post('/sn/user' + getUserId() + '/createPost', {msg: msg}, function (response) {
-            if (response.status == true) {
-                location.reload();
+        var data = {msg:msg};
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: '/sn/user' + getUserId() + '/createPost',
+            dataType:'json',
+            data: JSON.stringify(data),
+
+            success: function () {
+                window.location.href = '/';
+            },
+            error: function () {
+                alert('Wrong entry data');
             }
+
         });
     });
 
@@ -210,14 +247,38 @@ jQuery(function ($) {
         var id = getUserId();
         $.get('/sn/user'+ id +'/isFollowing', function(response){
             if ( response.isFollowing ) {
-                $.post('/sn/user'+ id + '/delete', {}, function(response){
-                    if (response.status == true) {
+                var data1 = {id:id};
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json",
+                    url: '/sn/user'+ id + '/delete',
+                    dataType:'json',
+                    data: JSON.stringify(data1),
+
+                    success: function () {
+                        window.location.href = '/';
+                    },
+                    error: function () {
+                        alert('Wrong entry data');
                     }
+
                 });
             } else {
-                $.post('/sn/user'+ id + '/add', {}, function(response){
-                    if (response.status == true) {
+                var data = {id:id};
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json",
+                    url: '/sn/user'+ id + '/add',
+                    dataType:'json',
+                    data: JSON.stringify(data),
+
+                    success: function () {
+                        window.location.href = '/';
+                    },
+                    error: function () {
+                        alert('Wrong entry data');
                     }
+
                 });
             }
         });
@@ -231,7 +292,7 @@ jQuery(function ($) {
     function nameSubscriber(){
         logger.log('dfgdg');
         setTimeout(function(){
-            $.get('/sn/group'+ getGroupId() +'/isFollowing', function(response){
+            $.get('/sn/group'+ getGroupId() +'/is', function(response){
                 if(response.isFollowing) {
                     $('.subcsribe-group').text('Unsubscribe');
                 } else{
@@ -312,19 +373,42 @@ jQuery(function ($) {
 
 
     function removePost(id) {
-        $.post('/sn/user' + getUserId() + '/deletePost', {postId: id}, function (response) {
-            if (response.status == true) {
-                location.reload();
+        var data = {postId:id};
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: '/sn/user' + getUserId() + '/deletePost',
+            dataType:'json',
+            data: JSON.stringify(data),
+
+            success: function () {
+                window.location.href = '/';
+            },
+            error: function () {
+                alert('Wrong entry data');
             }
+
         });
     };
-
 
     function sendPrivateMessage(msg) {
         var url = window.location.href;
         var pos = url.indexOf('user');
         var id = url.slice(pos + 4);
-        $.post('/sn/pm/sendMessage', {to:id, msg:msg}, function (json) {
+        var data = {to:id,msg:msg}
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: '/sn/pm/sendMessage',
+            dataType:'json',
+            data: JSON.stringify(data),
+
+            success: function () {
+                window.location.href = '/';
+            },
+            error: function () {
+                alert('Wrong entry data');
+            }
 
         });
     };
@@ -333,7 +417,20 @@ jQuery(function ($) {
 
 
     function createGroup(name, descr, userId) {
-        $.post('/sn/newGroup', {name:name, description:descr }, function (json) {
+        var data = {name:name, descr:descr};
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: '/sn/newGroup',
+            dataType:'json',
+            data: JSON.stringify(data),
+
+            success: function () {
+                window.location.href = '/';
+            },
+            error: function () {
+                alert('Wrong entry data');
+            }
 
         });
     }
