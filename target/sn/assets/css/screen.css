@@ -1561,7 +1561,7 @@ margin-left: 8%;
 /* line 36, ../sass/layouts/partials/_message.scss */
 .messages .close {
   float: right;
-  background: url('/webapp/assets/img/delete.png');
+  background: url('/assets/img/delete.png');
   width: 15px;
   height: 15px;
   background-size: cover;
@@ -1741,7 +1741,7 @@ padding: 10px 20px;
 
 width: 100%;
 height: auto;
-background-image: url('/webapp/assets/img/768bg.png');
+background-image: url('/assets/img/768bg.png');
 max-width: 768px;
 }
 .description .wraper {
