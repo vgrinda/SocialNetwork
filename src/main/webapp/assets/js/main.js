@@ -407,7 +407,7 @@ jQuery(function ($) {
                 window.location.href = '/';
             },
             error: function () {
-                alert('Your message succesfully sended');
+                alert('Your message has been successfully sent');
             }
 
         });
