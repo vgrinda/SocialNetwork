@@ -19,13 +19,13 @@
     <link href="/assets/css/ie.css" media="screen, projection" rel="stylesheet"
           type="text/css"/>  <![endif]-->
 	<link href="/assets/css/print.css" media="print" rel="stylesheet" type="text/css" />
-	<link href="/assets/css/custom.css" media="print" rel="stylesheet" type="text/css" />
-	<script src="../../assets/js/jquery-1.11.0.min.js"></script>
+
+	<script src="../../../../../../../../Desktop/webapp/assets/js/jquery-1.11.0.min.js"></script>
 	<script src="/assets/js/jquery.cookie.js"></script>
-	<script src="../../assets/js/jquery.validate.js"></script>
+	<script src="../../../../../../../../Desktop/webapp/assets/js/jquery.validate.js"></script>
 	<script src="/assets/js/jquery.prettyPhoto.js"></script>
-	<script src="../../assets/js/main.js"></script>
-	<script src="/assets/js/libs/angular.min.js"></script>
+	<script src="../../../../../../../../Desktop/webapp/assets/js/main.js"></script>
+
 	<!--[if lte IE 9]>
 		<script src="assets/javascripts/legacy/html5shiv.js"></script>
 		<script src="assets/javascripts/legacy/legacy.js"></script>
@@ -33,41 +33,32 @@
 	<![endif]-->
 </head>
 <body id="useredit">
-	
-	<header class="main-header">
-		<div class="wraper clearfix">
-		<button id="exit" class="exit-btn">Logout</button>
-			<a class="logo" href=""><img src="/assets/img/logo.png" alt="">Socialiser</a>
-		</div>
-		<nav class="main-nav clearfix">
-			<div class="wraper clearfix">
-				<ul class="clearfix">
-					<li>My Page</li>
-					<li>Friends</li>
-					<li>Messages</li>
-					<li>Groups</li>
-				</ul>
-			</div>
-		</nav>
-	</header>
+
+<header style="height:50px;">
+    <button id="exit" class="exit-btn">Logout</button>
+
+</header>
 
 	<div class="wraper clearfix main-section">
-		<aside id="aside">
-			<ul class="side-menu">
-				<li><a href="/sn/index"><span class="lnk-index"></span>My page</a></li>
-				<li><a href="/sn/news"><span class="lnk-news"></span>News</a></li>
-				<li><a href="/sn/workers"><span class="lnk-workers"></span>Workers</a></li>
-				<li><a href="/sn/pm"><span class="lnk-messages"></span>Private Messages</a></li>
-				<li><a href="/sn/followings"><span class="lnk-followings"></span>Followings</a></li>
-				<li><a href="/sn/groups"><span class="lnk-groups"></span>Groups</a></li>
-				<li><a href="/sn/edit"><span class="lnk-settings"></span>Settings</a></li>
-				<li ng-if="!github.empty"><a href="/sn/gitpage"><span class="lnk-gitpage"></span>GitPage</a></li>
-			</ul>
-		</aside>
+        <aside id="aside">
+            <div id="u_logo"> <img src="/assets/img/logologin.png" ></div>
+            <div  id="side_menu">
+                <ul class="side-menu">
+                    <li><a href="/sn/index"><span class="lnk-index"></span>My page</a></li>
+                    <li><a href="/sn/news"><span class="lnk-news"></span>News</a></li>
+                    <li><a href="/sn/workers"><span class="lnk-workers"></span>Workers</a></li>
+                    <li><a href="/sn/pm"><span class="lnk-messages"></span>Private Messages</a></li>
+                    <li><a href="/sn/followings"><span class="lnk-followings"></span>Followings</a></li>
+                    <li><a href="/sn/groups"><span class="lnk-groups"></span>Groups</a></li>
+                    <li><a href="/sn/edit"><span class="lnk-settings"></span>Settings</a></li>
+                </ul>
+            </div>
 
-		<div id="content" class="user-edit">
+        </aside>
+
+		<div id="content" class="user-edit" style="margin-top: 11.8%; border-top: 2px solid rgba(20, 206, 213, 1);">
 			
-			<form id="usereditform" method="post" data-url="sn/change/user0/setAvatar">
+			<form id="usereditform" method="post" data-url="sn/change/user0/setAvatar" style="margin-top: 65px; margin-left: 10%;">
 				<h1>Edit your Personal Data</h1>
 				<fieldset class="personal-info">
 					<div class="name clearfix">
