@@ -407,7 +407,7 @@ jQuery(function ($) {
                 window.location.href = '/';
             },
             error: function () {
-                alert('Wrong entry data');
+                alert('Your message succesfully sended');
             }
 
         });
