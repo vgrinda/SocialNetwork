@@ -11,7 +11,7 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
+figure, figcaption, footer, header,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
@@ -61,7 +61,7 @@ a img {
 }
 
 /* line 116, ../../../../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.7/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+article, aside, details, figcaption, figure, footer, header,  menu, nav, section, summary {
   display: block;
 }
 
@@ -108,8 +108,8 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 
 @font-face {
   font-family: "icon-fonts";
-  src: url('../../../../../../../../Desktop/webapp/assets/fonts/icon-fonts.eot');
-  src: url('../../../../../../../../Desktop/webapp/assets/fonts/icon-fonts.eot?#iefix') format('embedded-opentype'), url('../../../../../../../../Desktop/webapp/assets/fonts/icon-fonts.woff') format('woff'), url('../../../../../../../../Desktop/webapp/assets/fonts/icon-fonts.ttf') format('truetype'), url('../../../../../../../../Desktop/webapp/assets/fonts/icon-fonts.svg') format('svg');
+  src: url('/assets/fonts/icon-fonts.eot');
+  src: url('/assets/fonts/icon-fonts.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/icon-fonts.woff') format('woff'), url('/assets/fonts/icon-fonts.ttf') format('truetype'), url('/assets/fonts/icon-fonts.svg') format('svg');
 }
 
 /* line 1, ../sass/helpers/_wordpress.scss */
@@ -758,7 +758,7 @@ padding: 20px;
 .login-section {
  
 height: 800px;
-background-image: url(../../../../../../../../Desktop/webapp/assets/img/backgroundlogin.jpg);
+background-image: url('/assets/img/backgroundlogin.jpg');
 z-index: 1;
 background-repeat: no-repeat;
 -moz-background-size: 100% 100%;
@@ -1309,7 +1309,7 @@ font-size: 1.0em;
 .wall .post .remove-post {
   opacity: 0;
   float: right;
-  background: url(../../../../../../../../Desktop/webapp/assets/img/delete.png);
+  background: url('/assets/img/delete.png');
   width: 15px;
   height: 15px;
   background-size: cover;
@@ -1347,31 +1347,31 @@ margin-left: 8%;
 }
 /* line 11, ../sass/layouts/partials/_side-menu.scss */
 .side-menu li span.lnk-news {
-  background-image: url(../../../../../../../../Desktop/webapp/assets/img/news-icon.png);
+  background-image: url('/assets/img/news-icon.png');
 }
 /* line 14, ../sass/layouts/partials/_side-menu.scss */
 .side-menu li span.lnk-index {
-  background-image: url(../../../../../../../../Desktop/webapp/assets/img/home-icon.png);
+  background-image: url('/assets/img/home-icon.png');
 }
 /* line 17, ../sass/layouts/partials/_side-menu.scss */
 .side-menu li span.lnk-workers {
-  background-image: url(../../../../../../../../Desktop/webapp/assets/img/friend-icon.png);
+  background-image: url('/assets/img/friend-icon.png');
 }
 /* line 20, ../sass/layouts/partials/_side-menu.scss */
 .side-menu li span.lnk-messages {
-  background-image: url(../../../../../../../../Desktop/webapp/assets/img/message-icon.png);
+  background-image: url('/assets/img/message-icon.png');
 }
 /* line 23, ../sass/layouts/partials/_side-menu.scss */
 .side-menu li span.lnk-followings {
-  background-image: url(../../../../../../../../Desktop/webapp/assets/img/follower-icon.png);
+  background-image: url('/assets/img/follower-icon.png');
 }
 /* line 26, ../sass/layouts/partials/_side-menu.scss */
 .side-menu li span.lnk-groups {
-  background-image: url(../../../../../../../../Desktop/webapp/assets/img/group-icon.png);
+  background-image: url('/assets/img/group-icon.png');
 }
 /* line 29, ../sass/layouts/partials/_side-menu.scss */
 .side-menu li span.lnk-settings {
-  background-image: url(../../../../../../../../Desktop/webapp/assets/img/settings-icon.png);
+  background-image: url('/assets/img/settings-icon.png');
 }
 
 /* line 2, ../sass/layouts/partials/_groups.scss */
@@ -1561,7 +1561,7 @@ margin-left: 8%;
 /* line 36, ../sass/layouts/partials/_message.scss */
 .messages .close {
   float: right;
-  background: url(../../../../../../../../Desktop/webapp/assets/img/delete.png);
+  background: url('/webapp/assets/img/delete.png');
   width: 15px;
   height: 15px;
   background-size: cover;
@@ -1660,7 +1660,7 @@ margin-right: 0px;
 
 width: 100%;
 height: auto;
-background-image: url(../../../../../../../../Desktop/webapp/assets/img/768bg.png);
+background-image: url('/assets/img/768bg.png');
 max-width: 768px;
 }
 .description .wraper {
@@ -1741,7 +1741,7 @@ padding: 10px 20px;
 
 width: 100%;
 height: auto;
-background-image: url(../../../../../../../../Desktop/webapp/assets/img/768bg.png);
+background-image: url('/webapp/assets/img/768bg.png');
 max-width: 768px;
 }
 .description .wraper {
@@ -1762,7 +1762,7 @@ margin-bottom: 10%;
     text-align: center;
   }
   .login-section .btn-full {
-   margin-left: none;
+   margin-left: 0px;
 }
 
 }
