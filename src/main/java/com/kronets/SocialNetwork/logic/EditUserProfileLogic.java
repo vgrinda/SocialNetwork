@@ -22,7 +22,7 @@ public class EditUserProfileLogic {
 
     public boolean edit(long userId, String name, String surname,
                      String position, String interests, String day,
-                     String month, String year) {
+                     String month, String year, String gitlogin) {
         String names = new String(name);
         String surnames = new String(surname);
         String positions = new String(position);
@@ -31,7 +31,7 @@ public class EditUserProfileLogic {
         String months = new String(month);
         String years = new String(year);
         try {
-            if(logic(userId, name, surname, position, interests, day, month, year) && match(name, surname, position, interests,
+            if(logic(userId, name, surname, position, interests, day, month, year, gitlogin) && match(name, surname, position, interests,
                     day, month, year) && names.length() > 2 && names.length() < 20 && surnames.length() > 2 && surnames.length() < 20 &&
                     positions.length() > 2 && positions.length() < 20 && interest.length() > 2 && interest.length() < 51 &&
                     days.length() == 2 && months.length() == 2 && years.length() == 4){
@@ -50,14 +50,15 @@ public class EditUserProfileLogic {
 
     private boolean logic(long userId, String name, String surname,
                        String position, String interests, String day,
-                       String month, String year) throws Exception {
+                       String month, String year, String gitlogin) throws Exception {
         UserDao userDao = new UserDaoImpl();
         User user = userDao.selectById(userId);
 
-        if (!name.equals("")&& !surname.equals("") && !position.equals("")) {
+        if (!name.equals("")&& !surname.equals("") && !position.equals("") && !gitlogin.equals("")) {
             user.setName(name);
             user.setSurname(surname);
             user.setPosition(position);
+            user.setGitlogin(gitlogin);
         }else{
             return false;
         }

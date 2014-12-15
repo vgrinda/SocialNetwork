@@ -70,6 +70,25 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public User selectBygitlogin(long id) throws Exception {
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        Query query = session.createQuery(
+                "SELECT gitlogin FROM User where id = " + id);
+        List<Long> list = query.list();
+        session.close();
+        if (list.size() != 0) {
+            User user = selectById(list.get(0));
+            return user;
+        } else {
+            return null;
+        }
+
+
+    }
+
+    @Override
     public List<User> selectByFullName(String name, String surname, int page)
     throws Exception {
         List<User> returnUser = new ArrayList<User>();

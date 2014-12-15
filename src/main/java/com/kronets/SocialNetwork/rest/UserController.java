@@ -1,5 +1,7 @@
 package com.kronets.SocialNetwork.rest;
 
+import com.kronets.SocialNetwork.dao.impl.UserDaoImpl;
+import com.kronets.SocialNetwork.dao.UserDao;
 import com.kronets.SocialNetwork.logic.*;
 import com.kronets.SocialNetwork.logic.lists.InterestList;
 import com.kronets.SocialNetwork.logic.lists.PostsList;
@@ -45,21 +47,6 @@ public class UserController {
         return context.getResourceAsStream("/WEB-INF/pages/user.html");
     }
 
-   @GET
-   @Path("index")
-   @Produces("application/json")
-   public Response getData(@PathParam("f") String f) throws JSONException {
-
-       JSONObject jsonObject = new JSONObject();
-       String celsius;
-       celsius = f + "sgfrs";
-       jsonObject.put("F Value", f);
-       jsonObject.put("C Value", celsius);
-
-
-       String result = "@Produces(\"application/json\") Output: \n\nF to C Converter Output: \n\n" + jsonObject;
-       return Response.status(200).entity(result).build();
-   }
 
     @GET
     @Path("getUser")
@@ -67,6 +54,10 @@ public class UserController {
     public User getUser(@PathParam("id") long id) {
         return new UserLogic().getUser(id);
     }
+
+
+
+
 
     @POST
     @Path("createPost")
@@ -120,7 +111,7 @@ public class UserController {
 
     @POST
     @Path("edit")
-    //@Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     @Consumes("application/json")
     public String editUser(@Context HttpServletRequest request,
 //                           @FormParam("interests") String interests,
@@ -142,9 +133,10 @@ public class UserController {
         String year = json.getString("year");
         String day = json.getString("date");
         String month = json.getString("month");
+        String gitlogin = json.getString("gitlogin");
         if (editUserProfile
                 .edit(userId, name, surname, position, interests, day, month,
-                      year)) {
+                      year, gitlogin)) {
             return Responses.JSON_RESPONSE_TRUE;
         } else {
             return Responses.JSON_RESPONSE_FALSE;

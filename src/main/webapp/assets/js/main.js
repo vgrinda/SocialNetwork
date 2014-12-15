@@ -961,8 +961,8 @@ jQuery(function ($) {
                 var month = $('#usermonth').val();
                 var year = $('#useryear').val();
                 var avatar = $('#useravatar').val();
-
-                var data = {name:name,surname:surname,position:position,interests:interests,date:date,month:month,year:year};
+                var gitlogin = $('#gitlogin').val();
+                var data = {name:name,surname:surname,position:position,interests:interests,date:date,month:month,year:year,gitlogin:gitlogin};
                 $.ajax({
                     type: "POST",
                     contentType: "application/json",

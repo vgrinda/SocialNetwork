@@ -92,4 +92,6 @@ public interface UserDao {
     public void deleteGroup(long userId, long groupId) throws Exception;
 
     public boolean isGroupFollowing(long userId, long groupId) throws Exception;
+
+    public User selectBygitlogin(long id) throws Exception;
 }

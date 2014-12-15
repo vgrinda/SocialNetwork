@@ -30,6 +30,8 @@ public class User {
 
     private Date birthday;
 
+    private String gitlogin;
+
     @Column(name = "avatar", nullable = false)
     private String pathToAvatar;
 
@@ -78,13 +80,14 @@ public class User {
     }
 
     public User(String login, String name, String surname,
-                String position, Date birthday) {
+                String position, Date birthday, String gitlogin) {
         this.birthday = birthday;
         this.login = login;
         this.name = name;
         this.surname = surname;
         this.position = position;
         this.pathToAvatar = "/avatars/noavatar.png";
+        this.gitlogin = gitlogin;
     }
 
     @JsonIgnore
@@ -215,5 +218,14 @@ public class User {
 
     public void setCreatedGroups(List<Group> createdGroups) {
         this.createdGroups = createdGroups;
+    }
+
+    public String getGitlogin()
+    {
+        return gitlogin;
+    }
+    public void setGitlogin(String gitlogin)
+    {
+        this.gitlogin = gitlogin;
     }
 }

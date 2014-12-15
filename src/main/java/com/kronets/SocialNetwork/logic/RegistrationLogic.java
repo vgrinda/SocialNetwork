@@ -50,7 +50,7 @@ public class RegistrationLogic {
                 }
                 if (!match(login, password, name, surname, invite) && names.length() > 2 && names.length() < 20 && surnames.length() > 2 &&
                         surnames.length() < 20 && logins.length() > 2 && logins.length() < 20 && passwords.length() > 3
-                        && passwords.length() < 17) {
+                        && passwords.length() < 50) {
                     return Responses.JSON_RESPONSE_WRONG_DATA;
                 }
                 if (addUser(name, surname, login, password)) {
@@ -150,7 +150,7 @@ public class RegistrationLogic {
         Matcher loginMatcher = loginPattern.matcher(login);
         // At least 4 latin symbols or digits and _ -
         Pattern passwordPattern =
-                Pattern.compile("^[a-zA-Z0-9_-]{4,16}$");
+                Pattern.compile("^[a-zA-Z0-9_-]{4,50}$");
 
         Pattern namePattern = Pattern.compile("^[a-zA-Z0-9_-]{2,20}$");
         Pattern surnamePattern = Pattern.compile("^[a-zA-Z0-9_-]{2,20}$");

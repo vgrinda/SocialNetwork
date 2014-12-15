@@ -9,27 +9,37 @@ gitPageApp.controller('gitPage', [ '$scope', '$http', function ($scope, $http) {
         empty: true
     };
     $scope.repos = {};
-    $scope.ghuser = 'olehch';
+    $scope.ghuser = 'Torvalds';
 
-    // fetch github data
-    $http.get('https://api.github.com/users/' + $scope.ghuser).success( function(data) {
-        $scope.github = data;
-        $scope.github.empty = false;
 
-        // fetch repos data
+    //$http.get("sn/user0/getGitlogin").success(function(name) {
+        console.log(name);
+        $scope.ghuser = name;
 
-        $http.get($scope.github.repos_url).success( function(data) {
-            $scope.repos = data;
+        // fetch github data
+        $http.get('https://api.github.com/users/' + $scope.ghuser).success( function(data) {
+            $scope.github = data;
+            $scope.github.empty = false;
 
-            function updateOwnerName(j, data) {
-                $scope.repos[j].owner.name = data.name;
-            }
+            // fetch repos data
 
-            for(var i = 0; i < data.length; i++) {
-                $http.get(data[i].owner.html_url).success( function(data) {
-                    updateOwnerName(i, data);
-                });
-            }
+            $http.get($scope.github.repos_url).success( function(data) {
+                $scope.repos = data;
+
+                function updateOwnerName(j, data) {
+                    $scope.repos[j].owner.name = data.name;
+                }
+
+                for(var i = 0; i < data.length; i++) {
+                    $http.get(data[i].owner.html_url).success( function(data) {
+                        updateOwnerName(i, data);
+                    });
+                }
+            });
         });
-    });
+    //}).error(function(t) {
+    //    console.log(t);
+    //});
+
+
 }]);

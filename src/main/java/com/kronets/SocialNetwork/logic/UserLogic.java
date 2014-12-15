@@ -30,6 +30,8 @@ public class UserLogic {
         return user;
     }
 
+
+
     public boolean createPost(long id, String msg) {
         try {
             PostDao postDao = new PostDaoImpl();
